@@ -1,3 +1,5 @@
+---
+
 name: 'Hello Composite'
 description: 'Greed someone'
 inputs:
@@ -10,7 +12,8 @@ outputs:
     description: "Random number"
     value: ${{ steps.random-number-generator.outputs.random-id }}
 runs:
-  using: "composite"
+  using: 'composite' 
+  main: 'dist/index.js'    
   steps:
     - run: echo Hello ${{ inputs.who-to-greet }}
       shell: bash
