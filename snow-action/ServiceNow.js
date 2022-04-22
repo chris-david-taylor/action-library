@@ -6,7 +6,7 @@ class ServiceNow  {
     constructor(username, password, instanceUrl)
      {
         this.instanceUrl = instanceUrl;
- //       this.rest = new Rest ( username, password ); 
+        this.rest = new Rest ( username, password ); 
         this.responseObj;    
     }
 
