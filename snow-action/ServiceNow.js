@@ -1,3 +1,6 @@
+import Constants from './Constants.js';
+import Rest from './Rest.js';
+
 class ServiceNow extends Constants {
 
     constructor(username, password, instanceUrl)
