@@ -1,12 +1,11 @@
 import XMLHttpRequest from 'xhr2';
-import Constants from './Constants.js';
 
-class Rest extends Constants{
+class Rest {
    
 
     constructor(username, password) 
     {
-        super()
+        
         this.username = username;
         this.password = password;
         this.xhr = new XMLHttpRequest();

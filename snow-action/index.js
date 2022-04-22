@@ -10,8 +10,6 @@ try {
     var snowPassword = core.getInput('snow-password');
     var snowUrl = core.getInput('snow-url');
 
-
-
     // work to do --------------------- 
     var snow = new ServiceNow(snowUsername, snowPassword, snowUrl );
    

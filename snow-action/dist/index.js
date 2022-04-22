@@ -9743,13 +9743,12 @@ var xhr2 = __nccwpck_require__(9969);
 ;// CONCATENATED MODULE: ./Rest.js
 
 
-
-class Rest extends (/* unused pure expression or super */ null && (Constants)){
+class Rest {
    
 
     constructor(username, password) 
     {
-        super()
+        
         this.username = username;
         this.password = password;
         this.xhr = new XMLHttpRequest();
@@ -9828,11 +9827,8 @@ class ServiceNow  {
 
     constructor(username, password, instanceUrl)
      {
-//        super();
         this.instanceUrl = instanceUrl;
-        this.rest = new Rest_namespaceObject["default"] (
-            username = username,
-            password = password ); 
+        this.rest = new Rest_namespaceObject["default"] ( username, password ); 
         this.responseObj;    
     }
 
@@ -9868,8 +9864,6 @@ try {
     var snowUsername = core.getInput('snow-username');
     var snowPassword = core.getInput('snow-password');
     var snowUrl = core.getInput('snow-url');
-
-
 
     // work to do --------------------- 
     var snow = new ServiceNow_0(snowUsername, snowPassword, snowUrl );
