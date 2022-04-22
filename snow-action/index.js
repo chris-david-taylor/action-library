@@ -16,13 +16,14 @@ try {
         "Please approve this Pull Request", "Standard" );
     
     // get change number --------------
-    var number = response['result']['number']['display_value'];    
+    //var number = response['result']['number']['display_value'];    
+    console.log(`RESPONSE: ${JSON.stringify(response)}`)
 
     // outputs ------------------------	
     core.setOutput("time", number);
     
     var payload = JSON.stringify(github.context.payload, undefined, 2);
-    console.log(`The event payload: ${payload}`);
+ //   console.log(`The event payload: ${payload}`);
 } catch(error) {
     core.setFailed(error.message);
 }
