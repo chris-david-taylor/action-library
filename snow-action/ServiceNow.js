@@ -16,7 +16,7 @@ class ServiceNow  {
         var json = {}
         json['short_description'] = short_description;
         json['type'] = type;                
-        return ;//await this.rest._post(`${this.instanceUrl}/api/sn_chg_rest/change`, json);
+        return await this.rest._post(`${this.instanceUrl}/api/sn_chg_rest/change`, json);
     }
 
 
