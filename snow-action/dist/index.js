@@ -9865,22 +9865,19 @@ const github = __nccwpck_require__(4637);
 
 try {
     // inputs ------------------------	   
-    const snowUsername = core.getInput('snow-username');
-    const snowPassword = core.getInput('snow-password');
-    const snowUrl = core.getInput('snow-url');
+    var snowUsername = core.getInput('snow-username');
+    var snowPassword = core.getInput('snow-password');
+    var snowUrl = core.getInput('snow-url');
 
-    // debug --------------------------
-    console.log(`snow username: ${snowUsername}`);
-    console.log(`snow password: ${snowPassword}`);
-    console.log(`snow url: ${snowUrl}`);
+
 
     // work to do --------------------- 
     var snow = new ServiceNow_0(snowUsername, snowPassword, snowUrl );
    
     // outputs ------------------------	
-    core.setOutput("time", time);
+    core.setOutput("time", "test");
     
-    const payload = JSON.stringify(github.context.payload, undefined, 2);
+    var payload = JSON.stringify(github.context.payload, undefined, 2);
     console.log(`The event payload: ${payload}`);
 } catch(error) {
     core.setFailed(error.message);
