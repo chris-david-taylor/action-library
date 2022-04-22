@@ -12,9 +12,14 @@ try {
 
     // work to do --------------------- 
     var snow = new ServiceNow(snowUsername, snowPassword, snowUrl );
-   
+    var response = await snow.raise_change_request( 
+        "Please approve this Pull Request", "Standard" );
+    
+    // get change number --------------
+    var number = response['result']['number']['display_value'];    
+
     // outputs ------------------------	
-    core.setOutput("time", "test");
+    core.setOutput("time", number);
     
     var payload = JSON.stringify(github.context.payload, undefined, 2);
     console.log(`The event payload: ${payload}`);
