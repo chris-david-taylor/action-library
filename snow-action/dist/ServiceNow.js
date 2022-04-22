@@ -1,11 +1,11 @@
 import Constants from './Constants.js';
 import Rest from './Rest.js';
 
-class ServiceNow extends Constants {
+class ServiceNow {
 
     constructor(username, password, instanceUrl)
      {
-        super();
+      //  super();
         this.instanceUrl = instanceUrl;
         this.rest = new Rest (
             username = username,
@@ -19,7 +19,7 @@ class ServiceNow extends Constants {
         var json = {}
         json['short_description'] = short_description;
         json['type'] = type;                
-        return await this.rest._post(`${this.instanceUrl}/${this.api_change_request}`, json);
+        return await this.rest._post(`${this.instanceUrl}/api/sn_chg_rest/change`, json);
     }
 
 
@@ -27,7 +27,7 @@ class ServiceNow extends Constants {
     {
         var json = {}
         json['number'] = number;
-        return await this.rest._get(`${this.instanceUrl}/${this.api_change_request}?number=${number}`, json);
+        return await this.rest._get(`${this.instanceUrl}/api/sn_chg_rest/change?number=${number}`, json);
     }
 }
 
