@@ -4,8 +4,7 @@ class Rest {
    
 
     constructor(username, password) 
-    {
-        
+    {        
         this.username = username;
         this.password = password;
         this.xhr = new XMLHttpRequest();
@@ -75,3 +74,5 @@ class Rest {
         });
     }
 }
+
+export default Rest;
