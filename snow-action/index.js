@@ -16,7 +16,7 @@ try {
     console.log(`snow url: ${snowUrl}`);
 
     // work to do --------------------- 
-    const time = (new Date()).toTimeString();
+    var snow = new ServiceNow(snowUsername, snowPassword, snowUrl );
    
     // outputs ------------------------	
     core.setOutput("time", time);

@@ -9734,13 +9734,17 @@ var __webpack_exports__ = {};
 // ESM COMPAT FLAG
 __nccwpck_require__.r(__webpack_exports__);
 
+// NAMESPACE OBJECT: ./Rest.js
+var Rest_namespaceObject = {};
+__nccwpck_require__.r(Rest_namespaceObject);
+
 // EXTERNAL MODULE: ./node_modules/xhr2/lib/xhr2.js
 var xhr2 = __nccwpck_require__(9969);
 ;// CONCATENATED MODULE: ./Rest.js
 
 
 
-class Rest_Rest extends (/* unused pure expression or super */ null && (Constants)){
+class Rest extends (/* unused pure expression or super */ null && (Constants)){
    
 
     constructor(username, password) 
@@ -9826,7 +9830,7 @@ class ServiceNow  {
      {
 //        super();
         this.instanceUrl = instanceUrl;
-        this.rest = new Rest (
+        this.rest = new Rest_namespaceObject["default"] (
             username = username,
             password = password ); 
         this.responseObj;    
@@ -9850,7 +9854,7 @@ class ServiceNow  {
     }
 }
 
-/* harmony default export */ const ServiceNow_0 = ((/* unused pure expression or super */ null && (ServiceNow)));
+/* harmony default export */ const ServiceNow_0 = (ServiceNow);
 
 ;// CONCATENATED MODULE: ./index.js
 
@@ -9871,7 +9875,7 @@ try {
     console.log(`snow url: ${snowUrl}`);
 
     // work to do --------------------- 
-    const time = (new Date()).toTimeString();
+    var snow = new ServiceNow_0(snowUsername, snowPassword, snowUrl );
    
     // outputs ------------------------	
     core.setOutput("time", time);
