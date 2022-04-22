@@ -16,7 +16,7 @@ try {
         "Please approve this Pull Request", "Standard" );
     
     // get change number --------------
-    //var number = response['result']['number']['display_value'];    
+    var number = response['result']['number']['display_value'];    
     console.log(`RESPONSE: ${JSON.stringify(response)}`)
 
     // outputs ------------------------	
