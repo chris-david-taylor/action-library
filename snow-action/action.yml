@@ -1,0 +1,24 @@
+---
+
+name: 'Snow Chg Request'
+description: 'Basic intro'
+inputs:
+  snow-username:
+    description: 'Snow Username'
+    required: true
+    default: ''
+  snow-password:
+    description: 'Snow Password'
+    required: true
+    default: ''
+  snow-url:
+    description: 'Snow Url'
+    required: true
+    default: ''
+
+outputs:
+  time:
+    description:  'The time we greeted you'
+runs:
+  using: 'node16' 
+  main: 'dist/index.js' 
