@@ -9734,10 +9734,6 @@ var __webpack_exports__ = {};
 // ESM COMPAT FLAG
 __nccwpck_require__.r(__webpack_exports__);
 
-// NAMESPACE OBJECT: ./Rest.js
-var Rest_namespaceObject = {};
-__nccwpck_require__.r(Rest_namespaceObject);
-
 // EXTERNAL MODULE: ./node_modules/xhr2/lib/xhr2.js
 var xhr2 = __nccwpck_require__(9969);
 ;// CONCATENATED MODULE: ./Rest.js
@@ -9747,8 +9743,7 @@ class Rest {
    
 
     constructor(username, password) 
-    {
-        
+    {        
         this.username = username;
         this.password = password;
         this.xhr = new XMLHttpRequest();
@@ -9819,6 +9814,8 @@ class Rest {
     }
 }
 
+/* harmony default export */ const Rest_0 = ((/* unused pure expression or super */ null && (Rest)));
+
 ;// CONCATENATED MODULE: ./ServiceNow.js
 
 
@@ -9828,7 +9825,7 @@ class ServiceNow  {
     constructor(username, password, instanceUrl)
      {
         this.instanceUrl = instanceUrl;
-        this.rest = new Rest_namespaceObject["default"] ( username, password ); 
+ //       this.rest = new Rest ( username, password ); 
         this.responseObj;    
     }
 
@@ -9838,7 +9835,7 @@ class ServiceNow  {
         var json = {}
         json['short_description'] = short_description;
         json['type'] = type;                
-        return await this.rest._post(`${this.instanceUrl}/api/sn_chg_rest/change`, json);
+        return ;//await this.rest._post(`${this.instanceUrl}/api/sn_chg_rest/change`, json);
     }
 
 
@@ -9846,7 +9843,7 @@ class ServiceNow  {
     {
         var json = {}
         json['number'] = number;
-        return await this.rest._get(`${this.instanceUrl}/api/sn_chg_rest/change?number=${number}`, json);
+        return ;//await this.rest._get(`${this.instanceUrl}/api/sn_chg_rest/change?number=${number}`, json);
     }
 }
 

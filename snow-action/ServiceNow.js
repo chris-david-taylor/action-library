@@ -6,7 +6,7 @@ class ServiceNow  {
     constructor(username, password, instanceUrl)
      {
         this.instanceUrl = instanceUrl;
-        this.rest = new Rest ( username, password ); 
+ //       this.rest = new Rest ( username, password ); 
         this.responseObj;    
     }
 
@@ -16,7 +16,7 @@ class ServiceNow  {
         var json = {}
         json['short_description'] = short_description;
         json['type'] = type;                
-        return await this.rest._post(`${this.instanceUrl}/api/sn_chg_rest/change`, json);
+        return ;//await this.rest._post(`${this.instanceUrl}/api/sn_chg_rest/change`, json);
     }
 
 
@@ -24,7 +24,7 @@ class ServiceNow  {
     {
         var json = {}
         json['number'] = number;
-        return await this.rest._get(`${this.instanceUrl}/api/sn_chg_rest/change?number=${number}`, json);
+        return ;//await this.rest._get(`${this.instanceUrl}/api/sn_chg_rest/change?number=${number}`, json);
     }
 }
 
