@@ -20,7 +20,7 @@ try {
     console.log(`RESPONSE: ${JSON.stringify(response)}`)
 
     // outputs ------------------------	
-    core.setOutput("time", number);
+    core.setOutput("chg_number", number);
     
     var payload = JSON.stringify(github.context.payload, undefined, 2);
  //   console.log(`The event payload: ${payload}`);
