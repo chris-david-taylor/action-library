@@ -9,10 +9,15 @@ try {
     const snowPassword = core.getInput('snow-password');
     const snowUrl = core.getInput('snow-url');
 
+    // debug --------------------------
+    console.log(`snow username: ${snowUsername}`);
+    console.log(`snow password: ${snowPassword}`);
+    console.log(`snow url: ${snowUrl}`);
+
     // work to do --------------------- 
     const time = (new Date()).toTimeString();
    
-    // outputs -----------------------	
+    // outputs ------------------------	
     core.setOutput("time", time);
     
     const payload = JSON.stringify(github.context.payload, undefined, 2);
