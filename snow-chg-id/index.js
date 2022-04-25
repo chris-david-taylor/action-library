@@ -21,7 +21,7 @@ const getPullRequestNumber = (ref) => {
     console.log(`pr number: ${prNumber}`);
     console.log(`owner: ${owner}`);
     console.log(`repo ${repo}`)
-    const octokit = new Octokit(gitHubToken);
+    const octokit = github.getOctokit(gitHubToken);
     console.log("pr labels");
  
     const getPrLabels = async (prNumber, repo, owner) => {
