@@ -35,5 +35,4 @@ const getPullRequestNumber = (ref) => {
 
 } catch {
     console.log("Error!")
-}
-)();
+}})();
