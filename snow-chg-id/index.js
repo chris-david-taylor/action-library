@@ -42,7 +42,7 @@ const getPullRequestNumber = (ref) => {
    // const prLabels = await getPrLabels(prNumber, repo, owner);
 
    
-    const { data } = await octokit.pulls.get({
+    const { data } = await octokit.rest.pulls.get({
         pull_number: prNumber,
         repo: repo,
         owner: owner,
