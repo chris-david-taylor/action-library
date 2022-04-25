@@ -1,0 +1,15 @@
+
+name: 'Snow Create Change Request'
+description: 'Basic intro'
+inputs:
+  github-token:
+    description: 'Github token (Octokit)'
+    required: true
+    default: ''
+
+#outputs:
+#  chg_id:
+#    description:  'change request number'
+runs:
+  using: 'node16' 
+  main: 'index.js' 
