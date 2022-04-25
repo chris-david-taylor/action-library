@@ -24,7 +24,7 @@ const getPullRequestNumber = (ref) => {
     const octokit = new Octokit(gitHubToken);
     console.log("pr labels");
  
-    const getPrLabels = async (prNumber) => {
+    const getPrLabels = async (prNumber, repo, owner) => {
          
         const { data: pullRequest } = await octokit.pulls.get({
         pull_number: prNumber,
@@ -38,7 +38,8 @@ const getPullRequestNumber = (ref) => {
       return data.labels.map((label) => label.name);
     };
     console.log("getting labels");
-    const prLabels = await getPrLabels(prNumber);
+    const prLabels = await getPrLabels(prNumber, repo, owner);
+    console.log("got data");
     core.debug(`Found PR labels: ${prLabels.toString()}`);
 
 } catch {
