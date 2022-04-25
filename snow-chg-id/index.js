@@ -2,6 +2,7 @@
 
 const core = require('@actions/core');
 const github = require('@actions/github');
+const { Octokit } = require("@octokit/rest");
 
 const getPullRequestNumber = (ref) => {
   core.debug(`Parsing ref: ${ref}`);
@@ -17,8 +18,8 @@ const getPullRequestNumber = (ref) => {
     const ref = github.context.ref;
     const prNumber = github.context.issue.number || getPullRequestNumber(ref);
     const gitHubToken = core.getInput('github-token', { required: true });
-    console.log("instantiating github object")
-    const octokit = new GitHub(gitHubToken);
+    console.log(`pr number: ${prNumber}`);
+    const octokit = new Octokit(gitHubToken);
     console.log("pr labels");
     const getPrLabels = async (prNumber) => {
       const { data } = await octokit.pulls.get({
