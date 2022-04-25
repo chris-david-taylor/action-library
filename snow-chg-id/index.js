@@ -12,35 +12,12 @@ const getPullRequestNumber = (ref) => {
 
 (async () => {
   try {
-    console.log("setting up vars");
     const owner = github.context.repo.owner;
     const repo = github.context.repo.repo;
     const ref = github.context.ref;
     const prNumber = github.context.issue.number || getPullRequestNumber(ref);
     const gitHubToken = core.getInput('github-token', { required: true });
-    console.log(`pr number: ${prNumber}`);
-    console.log(`owner: ${owner}`);
-    console.log(`repo ${repo}`)
     const octokit = github.getOctokit(gitHubToken);
-    console.log("pr labels");
- 
-  /*  const getPrLabels = async (prNumber, repo, owner) => {
-         
-        const { data: pullRequest } = await octokit.pulls.get({
-        pull_number: prNumber,
-        repo: repo,
-        owner: owner,
-      });
-      console.log("getting entry point");
-      if (data.length === 0) {
-        console.log("no data returned");
-      }
-      return data.labels.map((label) => label.name);
-    };
-*/
-    console.log("getting labels");
-   // const prLabels = await getPrLabels(prNumber, repo, owner);
-
    
     const { data } = await octokit.rest.pulls.get({
         pull_number: prNumber,
@@ -48,8 +25,8 @@ const getPullRequestNumber = (ref) => {
         owner: owner,
       })
 
-      console.log("got data");
-    console.log(`Found PR labels: ${data.labels.toString()}`);
+    labels = data.labels.map((label) => label.name)
+    console.log(`Found PR labels: ${labels.toString()}`);
 
 } catch {
     console.log("Error!")
