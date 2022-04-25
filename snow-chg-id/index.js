@@ -19,7 +19,7 @@ const getPullRequestNumber = (ref) => {
     const gitHubToken = core.getInput('github-token', { required: true });
     console.log("instantiating github object")
     const octokit = new GitHub(gitHubToken);
-
+    console.log("pr labels");
     const getPrLabels = async (prNumber) => {
       const { data } = await octokit.pulls.get({
         pull_number: prNumber,
