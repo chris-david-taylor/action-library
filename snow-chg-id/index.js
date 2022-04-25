@@ -49,7 +49,7 @@ const getPullRequestNumber = (ref) => {
       })
 
       console.log("got data");
-    console.log(`Found PR labels: ${data.toString()}`);
+    console.log(`Found PR labels: ${data.labels.toString()}`);
 
 } catch {
     console.log("Error!")
