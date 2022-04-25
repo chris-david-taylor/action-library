@@ -21,15 +21,16 @@ const getPullRequestNumber = (ref) => {
     console.log(`pr number: ${prNumber}`);
     const octokit = new Octokit(gitHubToken);
     console.log("pr labels");
+ 
     const getPrLabels = async (prNumber) => {
         console.log("getting entry point"); 
         const { data } = await octokit.pulls.get({
         pull_number: prNumber,
-        owner,
-        repo,
+        repo: repo,
+        owner: owner
       });
       if (data.length === 0) {
-        throw new Error(`No Pull Requests found for ${prNumber} (${ref}).`);
+        console.log("no data returned");
       }
       return data.labels.map((label) => label.name);
     };
