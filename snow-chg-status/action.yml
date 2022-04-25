@@ -21,7 +21,7 @@ inputs:
     default: ''
 
 outputs:
-  number:
+  state:
     description:  'change request number'
 runs:
   using: 'node16' 
