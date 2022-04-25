@@ -12,11 +12,9 @@ try {
 
     // get change state --------------------- 
     var snow = new ServiceNow(snowUsername, snowPassword, snowUrl );
-    var response = await snow.get_change_request( snowChg );
+    var response = await snow.get_change_request( snowChg ); 
+    var state = JSON.stringify(response.result[0].state["value"]);
  
-    // get change number --------------
- 
-    console.log(`STATE: ${JSON.stringify(response.result[0].state["value"])}`);
     // outputs ------------------------	
     core.setOutput("state", state);  
 
