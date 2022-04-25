@@ -16,7 +16,7 @@ try {
     console.log(`RESULT: ${JSON.stringify(response)}`);
     // get change number --------------
     var state = response['result']['state']['value'];    
-
+    console.log(`STATE: ${state}`);
     // outputs ------------------------	
     core.setOutput("state", state);  
     var payload = JSON.stringify(github.context.payload, undefined, 2);
