@@ -23,12 +23,13 @@ const getPullRequestNumber = (ref) => {
     console.log("pr labels");
  
     const getPrLabels = async (prNumber) => {
-        console.log("getting entry point"); 
+         
         const { data } = await octokit.pulls.get({
         pull_number: prNumber,
         repo: repo,
         owner: owner
       });
+      console.log("getting entry point");
       if (data.length === 0) {
         console.log("no data returned");
       }
