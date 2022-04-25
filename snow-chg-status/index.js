@@ -1,6 +1,5 @@
 import ServiceNow from './ServiceNow.js';
 
-
 const core = require('@actions/core');
 const github = require('@actions/github');
 
@@ -9,19 +8,17 @@ try {
     var snowUsername = core.getInput('snow-username');
     var snowPassword = core.getInput('snow-password');
     var snowUrl = core.getInput('snow-url');
+    var snowChg = core.getInput('snow-chg');
 
     // work to do --------------------- 
     var snow = new ServiceNow(snowUsername, snowPassword, snowUrl );
-    var response = await snow.raise_change_request( 
-        "Please approve this Pull Request", "Standard" );
+    var response = await snow.get_change_request( snowChg );
     
     // get change number --------------
-    var number = response['result']['number']['display_value'];    
-    console.log(`RESPONSE: ${JSON.stringify(response)}`)
+    var state = response['result']['number']['state'];    
 
     // outputs ------------------------	
-    core.setOutput("chg_number", number);
-    
+    core.setOutput("state", state);  
     var payload = JSON.stringify(github.context.payload, undefined, 2);
 
 } catch(error) {

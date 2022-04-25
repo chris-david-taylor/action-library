@@ -1,6 +1,5 @@
 import Rest from './Rest.js';
 
-
 class ServiceNow  {
     
     constructor(username, password, instanceUrl)
@@ -10,7 +9,6 @@ class ServiceNow  {
         this.responseObj;    
     }
     
-
     async get_change_request ( number = "")
     {
         var json = {}
