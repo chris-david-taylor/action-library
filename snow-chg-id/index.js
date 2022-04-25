@@ -19,6 +19,8 @@ const getPullRequestNumber = (ref) => {
     const prNumber = github.context.issue.number || getPullRequestNumber(ref);
     const gitHubToken = core.getInput('github-token', { required: true });
     console.log(`pr number: ${prNumber}`);
+    console.log(`owner: ${owner}`);
+    console.log(`repo ${repo}`)
     const octokit = new Octokit(gitHubToken);
     console.log("pr labels");
  
@@ -27,7 +29,7 @@ const getPullRequestNumber = (ref) => {
         const { data } = await octokit.pulls.get({
         pull_number: prNumber,
         repo: repo,
-        owner: owner
+        owner: owner,
       });
       console.log("getting entry point");
       if (data.length === 0) {
