@@ -9690,7 +9690,7 @@ try {
     var response = await snow.get_change_request( snowChg );
     // get change number --------------
   //  var state = Object.keys(response)//   response["result"][0]; //['state']['value'];    
-    console.log(`STATE: ${JSON.stringify(response)}`);
+    console.log(`STATE: ${JSON.stringify(response.result)}`);
     // outputs ------------------------	
     core.setOutput("state", state);  
     var payload = JSON.stringify(github.context.payload, undefined, 2);
