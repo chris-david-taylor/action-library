@@ -25,4 +25,4 @@ outputs:
     description:  'change request number'
 runs:
   using: 'node16' 
-  main: 'dist/index.js' 
+  main: 'index.js' 
