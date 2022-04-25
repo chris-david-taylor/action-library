@@ -13,7 +13,7 @@ try {
     // work to do --------------------- 
     var snow = new ServiceNow(snowUsername, snowPassword, snowUrl );
     var response = await snow.get_change_request( snowChg );
-    
+    console.log(`RESULT: ${JSON.stringify(response)}`);
     // get change number --------------
     var state = response['result']['number']['state'];    
 

@@ -11,8 +11,6 @@ class ServiceNow  {
     
     async get_change_request ( number = "")
     {
-        var json = {}
-        json['number'] = number;
         return await this.rest._get(`${this.instanceUrl}/api/sn_chg_rest/change?number=${number}`);
     }
 }

@@ -9657,8 +9657,6 @@ class ServiceNow  {
     
     async get_change_request ( number = "")
     {
-        var json = {}
-        json['number'] = number;
         return await this.rest._get(`${this.instanceUrl}/api/sn_chg_rest/change?number=${number}`);
     }
 }
@@ -9690,7 +9688,7 @@ try {
     // work to do --------------------- 
     var snow = new _ServiceNow_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z(snowUsername, snowPassword, snowUrl );
     var response = await snow.get_change_request( snowChg );
-    
+    console.log(`RESULT: ${JSON.stringify(response)}`);
     // get change number --------------
     var state = response['result']['number']['state'];    
 
