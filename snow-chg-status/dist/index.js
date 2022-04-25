@@ -9688,10 +9688,9 @@ try {
     // work to do --------------------- 
     var snow = new _ServiceNow_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z(snowUsername, snowPassword, snowUrl );
     var response = await snow.get_change_request( snowChg );
-    console.log(`RESULT: ${JSON.stringify(response)}`);
     // get change number --------------
-    var state = response['result']['number']['state'];    
-
+  //  var state = Object.keys(response)//   response["result"][0]; //['state']['value'];    
+    console.log(`STATE: ${JSON.parse(response.results[0]["state"].number)}`);
     // outputs ------------------------	
     core.setOutput("state", state);  
     var payload = JSON.stringify(github.context.payload, undefined, 2);
