@@ -11,11 +11,13 @@ const getPullRequestNumber = (ref) => {
 
 (async () => {
   try {
+    console.log("setting up vars");
     const owner = github.context.repo.owner;
     const repo = github.context.repo.repo;
     const ref = github.context.ref;
     const prNumber = github.context.issue.number || getPullRequestNumber(ref);
     const gitHubToken = core.getInput('github-token', { required: true });
+    console.log("instantiating github object")
     const octokit = new GitHub(gitHubToken);
 
     const getPrLabels = async (prNumber) => {
