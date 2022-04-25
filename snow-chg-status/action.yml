@@ -1,6 +1,6 @@
 ---
 
-name: 'Snow Chg Request'
+name: 'Snow Check Change Request'
 description: 'Basic intro'
 inputs:
   snow-username:
@@ -15,10 +15,14 @@ inputs:
     description: 'Snow Url'
     required: true
     default: ''
+  snow-chg:
+    description: 'Snow CHG Number'
+    required: true
+    default: ''
 
 outputs:
-  time:
-    description:  'The time we greeted you'
+  number:
+    description:  'change request number'
 runs:
   using: 'node16' 
   main: 'dist/index.js' 

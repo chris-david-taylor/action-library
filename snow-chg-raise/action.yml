@@ -1,0 +1,24 @@
+---
+
+name: 'Snow Create Change Request'
+description: 'Basic intro'
+inputs:
+  snow-username:
+    description: 'Snow Username'
+    required: true
+    default: ''
+  snow-password:
+    description: 'Snow Password'
+    required: true
+    default: ''
+  snow-url:
+    description: 'Snow Url'
+    required: true
+    default: ''
+
+outputs:
+  number:
+    description:  'change request number'
+runs:
+  using: 'node16' 
+  main: 'dist/index.js' 
