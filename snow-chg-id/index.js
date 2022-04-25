@@ -28,6 +28,17 @@ const getPullRequestNumber = (ref) => {
     labels = data.labels.map((label) => label.name)
     console.log(`Found PR labels: ${labels.toString()}`);
 
+    var chg_id;
+    
+    for( var label of labels) {
+        if (label.includes("CHG")) {
+            chg_id = label;
+            break;
+        }
+    }
+    core.setOutput("chg_number", chg_id);
+
+
 } catch {
     console.log("Error!")
 }})();

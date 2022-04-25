@@ -7,9 +7,9 @@ inputs:
     required: true
     default: ''
 
-#outputs:
-#  chg_id:
-#    description:  'change request number'
+outputs:
+  chg_number:
+    description:  'change request number'
 runs:
   using: 'node16' 
   main: 'index.js' 
