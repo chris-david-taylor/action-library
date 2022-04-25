@@ -15,7 +15,7 @@ try {
         "Please approve this Pull Request", "Standard" );
     
     // get change number --------------
-    var number = response['result']['number']['display_value'];    
+    var chg = response['result']['number']['display_value'];    
     console.log(`ServiceNow Change Request ID: ${number}`)
 
     // outputs ------------------------	
