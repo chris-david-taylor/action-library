@@ -40,7 +40,7 @@ const getPullRequestNumber = (ref) => {
 */
     console.log("getting labels");
    // const prLabels = await getPrLabels(prNumber, repo, owner);
-    console.log("got data");
+
    
     const { data } = await octokit.pulls.get({
         pull_number: prNumber,
@@ -48,8 +48,8 @@ const getPullRequestNumber = (ref) => {
         owner: owner,
       })
 
-
-    core.debug(`Found PR labels: ${data.toString()}`);
+      console.log("got data");
+    console.log(`Found PR labels: ${data.toString()}`);
 
 } catch {
     console.log("Error!")
