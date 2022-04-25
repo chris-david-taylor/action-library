@@ -9685,15 +9685,15 @@ try {
     var snowUrl = core.getInput('snow-url');
     var snowChg = core.getInput('snow-chg');
 
-    // work to do --------------------- 
+    // get change state --------------------- 
     var snow = new _ServiceNow_js__WEBPACK_IMPORTED_MODULE_0__/* ["default"] */ .Z(snowUsername, snowPassword, snowUrl );
     var response = await snow.get_change_request( snowChg );
+ 
     // get change number --------------
-  //  var state = Object.keys(response)//   response["result"][0]; //['state']['value'];    
-    console.log(`STATE: ${JSON.stringify(response.result[0].state)}`);
+ 
+    console.log(`STATE: ${JSON.stringify(response.result[0].state["value"])}`);
     // outputs ------------------------	
     core.setOutput("state", state);  
-    var payload = JSON.stringify(github.context.payload, undefined, 2);
 
 } catch(error) {
     core.setFailed(error.message);
