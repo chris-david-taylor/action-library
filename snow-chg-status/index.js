@@ -15,7 +15,7 @@ try {
     var response = await snow.get_change_request( snowChg );
     console.log(`RESULT: ${JSON.stringify(response)}`);
     // get change number --------------
-    var state = response['result']['state']['value'];    
+    var state = response['result'][0]['state']['value'];    
     console.log(`STATE: ${state}`);
     // outputs ------------------------	
     core.setOutput("state", state);  
