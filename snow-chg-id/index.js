@@ -31,11 +31,14 @@ const getPullRequestNumber = (ref) => {
     var chg_id;
     
     for( var label of labels) {
+        console.log(`label: ${label}`)
         if (label.includes("CHG")) {
             chg_id = label;
             break;
         }
     }
+    
+    console.log(`chg: ${chg_id}`);
     core.setOutput("chg_number", chg_id);
 
 
