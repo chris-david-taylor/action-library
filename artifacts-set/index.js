@@ -13,9 +13,10 @@ const github = require('@actions/github');
         console.log(`environment: ${environment}`);
         console.log(`artifacts: ${artifacts}`);
 
-        for (const artifact in artifactsObj ) {
-            console.log(`hello`);// value is ${artifactsObj[artifact]}`);
-        }
+        console.log(`obj: ${artifactsObj}`);
+        //for (const artifact in artifactsObj ) {
+        //    console.log(`hello`);// value is ${artifactsObj[artifact]}`);
+        //}
     }
     catch{
         console.log("exception!");
