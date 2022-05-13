@@ -1,0 +1,23 @@
+---
+
+name: 'Artifact Versions'
+description: 'Creates auto.input.tfvars'
+inputs:
+  cloud:
+    description: 'Cloud (aws, azure)'
+    required: true
+    default: ''
+
+  environment: 
+    description: 'Which env'
+    required: true
+    default: ''
+
+  artifacts:
+    description: 'Input Artifcact JSON string'
+    required: true
+    default: ''
+
+runs:
+  using: 'node16' 
+  main: 'dist/index.js'
