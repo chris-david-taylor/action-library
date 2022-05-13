@@ -13,7 +13,7 @@ const github = require('@actions/github');
         console.log(`environment: ${environment}`);
         console.log(`artifacts: ${artifacts}`);
 
-        for  (const artifact in artifactsObj ){
+        for  (const artifact in artifactsObj ) {
             console.log(`${artifact} value is ${artifactsObj[artifact]}`);
         }
     }
