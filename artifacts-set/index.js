@@ -14,9 +14,9 @@ const github = require('@actions/github');
         console.log(`artifacts: ${artifacts}`);
 
         console.log(`obj: ${JSON.stringify(artifactsObj)}`);
-        //for (const artifact in artifactsObj ) {
-        //    console.log(`hello`);// value is ${artifactsObj[artifact]}`);
-        //}
+        for (const artifact in artifactsObj ) {
+            console.log(`hello`);// value is ${artifactsObj[artifact]}`);
+        }
     }
     catch{
         console.log("exception!");
