@@ -8873,7 +8873,7 @@ const github = __nccwpck_require__(4637);
         const artifactsStripped = artifacts.toString().replace(/\n/g, ' ');
         const artifactsObj = JSON.parse(artifactsStripped);
 
-        // configure cloud
+        // configure cloud ----------------------
         if ( cloud == "azure") {
             environment = environment.replace('-', '');
         } 
@@ -8882,9 +8882,8 @@ const github = __nccwpck_require__(4637);
         console.log(`environment: ${environment}`);
         console.log(`artifacts: ${artifactsStripped}`);
 
-        console.log(`obj: ${JSON.stringify(artifactsObj)}`);
         for (const item in artifactsObj ) {
-            console.log(`hello value is ${item} equals ${artifactsObj[item]}`);       
+            console.log(`hello value is ${item} equals ${item[ property ]}`);       
         }
               
     }
