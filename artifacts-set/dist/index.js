@@ -8875,7 +8875,7 @@ const github = __nccwpck_require__(4637);
 
         console.log(`cloud: ${cloud}`);
         console.log(`environment: ${environment}`);
-        console.log(`artifacts: ${artifacts}`);
+        console.log(`artifacts: ${artifactsStripped}`);
 /*
         console.log(`obj: ${JSON.stringify(artifactsObj)}`);
         for (const artifact in artifactsObj ) {
