@@ -22,7 +22,7 @@ const github = require('@actions/github');
 
         console.log(`obj: ${JSON.stringify(artifactsObj)}`);
         for (const item in artifactsObj ) {
-            console.log(`hello value is ${item} equals ${item[artifact]}`);       
+            console.log(`hello value is ${item} equals ${artifactsObj[item]}`);       
         }
               
     }

@@ -8884,7 +8884,7 @@ const github = __nccwpck_require__(4637);
 
         console.log(`obj: ${JSON.stringify(artifactsObj)}`);
         for (const item in artifactsObj ) {
-            console.log(`hello value is ${item} equals ${item[artifact]}`);       
+            console.log(`hello value is ${item} equals ${artifactsObj[item]}`);       
         }
               
     }
