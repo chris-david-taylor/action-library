@@ -8875,16 +8875,16 @@ const github = __nccwpck_require__(4637);
 
         // configure cloud ----------------------
         if ( cloud == "azure") {
-            environment = environment.replace('-', '');
+            environment = environment.replace(/-/g, '');
         } 
 
         console.log(`cloud: ${cloud}`);
         console.log(`environment: ${environment}`);
         console.log(`artifacts: ${artifactsStripped}`);
 
-        for (const item in artifactsObj ) {
-            console.log(`hello value is ${item} equals ${item[ property ]}`);       
-        }
+  //      for (const item in artifactsObj ) {
+  //          console.log(`hello value is ${item} equals ${item[ property ]}`);       
+  //      }
               
     }
     catch{
