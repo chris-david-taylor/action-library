@@ -14,9 +14,9 @@ const github = require('@actions/github');
         const artifactsObj = JSON.parse(artifacts);
 
         // configure cloud ----------------------
-        if ( cloud == "azure") {             
-            environment = environmentInput.replaceAll(/e/g, '');
-        } 
+        //if ( cloud == "azure") {             
+            environment = environmentInput.replace(/e/g, '');
+       // } 
 
         console.log(`cloud: ${cloud}`);
         console.log(`environment: ${environment}`);
