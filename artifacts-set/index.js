@@ -16,7 +16,7 @@ const github = require('@actions/github');
         // configure cloud ----------------------
         if ( cloud == "azure") {             
 
-            environment = environmentInput.replace(/-/g, '');
+            environment = environmentInput.replace(/\-/g, '');
         } 
 
         console.log(`cloud: ${cloud}`);
