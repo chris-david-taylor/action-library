@@ -8860,6 +8860,7 @@ module.exports = JSON.parse('[[[0,44],"disallowed_STD3_valid"],[[45,46],"valid"]
 var __webpack_exports__ = {};
 // This entry need to be wrapped in an IIFE because it need to be isolated against other modules in the chunk.
 (() => {
+const { debug } = __nccwpck_require__(2619);
 const core = __nccwpck_require__(2619);
 const github = __nccwpck_require__(4637);
 
@@ -8868,7 +8869,11 @@ const github = __nccwpck_require__(4637);
     try {
         const cloud = core.getInput('cloud');
         const environment = core.getInput('environment');
-        const artifacts = core.getInput('artifacts');
+        console.log(`before input`);
+//        const artifacts = core.getInput('artifacts');
+/*        console.log(`parsed artifacts: ${artifacts}`)
+        artifacts = artifacts.replace('/\n/g', ' ');
+        console.log(`parsed artifacts: ${artifacts}`)
         const artifactsObj = JSON.parse(artifacts);
 
         console.log(`cloud: ${cloud}`);
@@ -8877,8 +8882,9 @@ const github = __nccwpck_require__(4637);
 
         console.log(`obj: ${JSON.stringify(artifactsObj)}`);
         for (const artifact in artifactsObj ) {
-            console.log(`hello value is ${artifact} equals ${artifactsObj[artifact]}`);
-        }
+            console.log(`hello value is ${artifact} equals ${artifactsObj[artifact]}`);       
+              }
+              */
     }
     catch{
         console.log("exception!");
