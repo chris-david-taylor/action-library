@@ -8870,7 +8870,7 @@ const github = __nccwpck_require__(4637);
         const cloud = core.getInput('cloud');
         const environment = core.getInput('environment');
         const artifacts = String(core.getInput('artifacts'));
-        const artifactsStripped = artifacts.replace('/\n/g', ' ');
+        const artifactsStripped = artifacts.replace(/[\r\n]/gm, ' ');
         const artifactsObj = JSON.parse(artifacts);
 
         console.log(`cloud: ${cloud}`);
