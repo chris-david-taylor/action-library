@@ -8,8 +8,8 @@ const github = require('@actions/github');
         const cloud = core.getInput('cloud');
         const environment = core.getInput('environment');
         console.log(`before input`)
-        const artifacts = core.getInput('artifacts');
-        console.log(`parsed artifacts: ${artifacts}`)
+//        const artifacts = core.getInput('artifacts');
+/*        console.log(`parsed artifacts: ${artifacts}`)
         artifacts = artifacts.replace('/\n/g', ' ');
         console.log(`parsed artifacts: ${artifacts}`)
         const artifactsObj = JSON.parse(artifacts);
@@ -20,8 +20,9 @@ const github = require('@actions/github');
 
         console.log(`obj: ${JSON.stringify(artifactsObj)}`);
         for (const artifact in artifactsObj ) {
-            console.log(`hello value is ${artifact} equals ${artifactsObj[artifact]}`);
-        }
+            console.log(`hello value is ${artifact} equals ${artifactsObj[artifact]}`);       
+              }
+              */
     }
     catch{
         console.log("exception!");
