@@ -1,6 +1,4 @@
-const { debug } = require('@actions/core');
 const core = require('@actions/core');
-const github = require('@actions/github');
 
 (async () => {
 
@@ -27,7 +25,7 @@ const github = require('@actions/github');
         }
 
         // trim the last seperator -----------------------
-        artifacts = artifacts.replace(/\d$/, '');
+        artifacts = artifacts.replace(/.$/, '');
     
         // export variables --------------------
         core.exportVariable("CLOUD", `${cloud}`);
