@@ -8871,7 +8871,7 @@ const github = __nccwpck_require__(4637);
         const environment = core.getInput('environment');
         const artifacts = core.getInput('artifacts');
         const artifactsStripped = artifacts.toString().replace(/\n/g, ' ');
-        const artifactsObj = JSON.parse(artifactsStripped);
+  //      const artifactsObj = JSON.parse(artifactsStripped);
 
         console.log(`cloud: ${cloud}`);
         console.log(`environment: ${environment}`);
