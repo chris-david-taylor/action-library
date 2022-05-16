@@ -8876,9 +8876,9 @@ const github = __nccwpck_require__(4637);
         const artifactsObj = JSON.parse(artifacts);
 
         // configure cloud ----------------------
-        if ( cloud == "azure") {             
-            environment = environmentInput.replaceAll(/e/g, '');
-        } 
+        //if ( cloud == "azure") {             
+            environment = environmentInput.replace(/e/g, '');
+       // } 
 
         console.log(`cloud: ${cloud}`);
         console.log(`environment: ${environment}`);
