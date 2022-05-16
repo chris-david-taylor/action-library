@@ -5,26 +5,25 @@ const github = require('@actions/github');
 (async () => {
 
     try {
-        const cloud = core.getInput('cloud');
-        const environmentInput = core.getInput('environment');
-        const artifactsInputs = core.getInput('artifacts');
+        var cloud = core.getInput('cloud');
+        var environment = core.getInput('environment');
+        var artifacts = core.getInput('artifacts');
  
         var artifacts = artifactsInputs.replace(/\n/g, ' ');
-        var environment = environmentInput;
-        const artifactsObj = JSON.parse(artifacts);
+        var artifactsObj = JSON.parse(artifacts);
 
         // configure cloud ----------------------
         if ( cloud == "azure") {             
-            environment = environmentInput.replace(/e/g, '');
+            environment = environment.replace(/-/g, '');
         } 
 
         console.log(`cloud: ${cloud}`);
         console.log(`environment: ${environment}`);
         console.log(`artifacts: ${artifacts}`);
 
-  //      for (const item in artifactsObj ) {
-  //          console.log(`hello value is ${item} equals ${item[ property ]}`);       
-  //      }
+        for (var item in artifactsObj ) {
+            console.log(`hello value is ${item} equals ${item[ property ]}`);       
+        }
               
     }
     catch{
