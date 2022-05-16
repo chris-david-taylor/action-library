@@ -22,7 +22,7 @@ const github = require('@actions/github');
         console.log(`artifacts: ${artifacts}`);
 
         for (var item in artifactsObj ) {
-            console.log(`hello value is ${item} equals ${item[ property ]}`);       
+            console.log(`hello value is ${item} equals ${artifactsObj[ item ]}`);       
         }
               
     }
