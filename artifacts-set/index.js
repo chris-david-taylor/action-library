@@ -10,8 +10,8 @@ const github = require('@actions/github');
         console.log(`before input`);
         const artifacts = String(core.getInput('artifacts'));
         console.log(`raw artifacts: ${artifacts}`)
-        artifacts = artifacts.replace('/\n/g', ' ');
-        console.log(`parsed artifacts: ${artifacts}`)
+        const artifactsStripped = artifacts.replace('/\n/g', ' ');
+        console.log(`parsed artifacts: ${artifactsStripped}`);
  /*       const artifactsObj = JSON.parse(artifacts);
 
         console.log(`cloud: ${cloud}`);
