@@ -7,7 +7,7 @@ const github = require('@actions/github');
     try {
         const cloud = core.getInput('cloud');
         const environment = core.getInput('environment');
-        console.log(`before input`)
+        console.log(`before input`);
 //        const artifacts = core.getInput('artifacts');
 /*        console.log(`parsed artifacts: ${artifacts}`)
         artifacts = artifacts.replace('/\n/g', ' ');
