@@ -8877,7 +8877,7 @@ const github = __nccwpck_require__(4637);
 
         // configure cloud ----------------------
         if ( cloud == "azure") {             
-            environment = environmentInput.replace(/-/g, '');
+            environment = environmentInput.toString().replace(/-/g, '');
         } 
 
         console.log(`cloud: ${cloud}`);
