@@ -8868,17 +8868,17 @@ const github = __nccwpck_require__(4637);
 
     try {
         const cloud = core.getInput('cloud');
-        const environmentInput = core.getInput('environment').toString();
+        const environmentInput = core.getInput('environment');
         const artifactsInputs = core.getInput('artifacts');
-        const artifacts = artifactsInputs.toString().replace(/\n/g, ' ');
-        const environment = environmentInput;
-
+ 
+        var artifacts = artifactsInputs.replace(/\n/g, ' ');
+        var environment = environmentInput;
         const artifactsObj = JSON.parse(artifacts);
 
         // configure cloud ----------------------
-        //if ( cloud == "azure") {             
+        if ( cloud == "azure") {             
             environment = environmentInput.replace(/e/g, '');
-       // } 
+        } 
 
         console.log(`cloud: ${cloud}`);
         console.log(`environment: ${environment}`);
