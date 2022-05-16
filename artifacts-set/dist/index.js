@@ -8869,10 +8869,12 @@ const github = __nccwpck_require__(4637);
     try {
         var cloud = core.getInput('cloud');
         var environment = core.getInput('environment');
-        var artifacts = core.getInput('artifacts');
- 
-        artifacts = artifacts.replace(/\n/g, ' ');
-        var artifactsObj = JSON.parse(artifacts);
+        var artifactsInput = core.getInput('artifacts'); 
+  
+        var artifactsObj = JSON.parse(artifactsInput.replace(/\n/g, ' '));
+        var seperator = ';';
+        var seperator_kv = ':';
+        var artifacts = ';'
 
         // configure cloud ----------------------
         if ( cloud == "azure") {             
@@ -8884,9 +8886,12 @@ const github = __nccwpck_require__(4637);
         console.log(`artifacts: ${artifacts}`);
 
         for (var item in artifactsObj ) {
-            console.log(`hello value is ${item} equals ${artifactsObj[ item ]}`);       
+ //           console.log(`hello value is ${item} equals ${artifactsObj[ item ]}`);
+            var artifact = `${item}.txt${seperator_kv}${artifactsObj[ item ]}${seperator}`;
+            artifacts = artifacts.concat(artifact);        
         }
-              
+        
+        console.log(`artifacts: ${artifacts}`);
     }
     catch{
         console.log("exception!");
