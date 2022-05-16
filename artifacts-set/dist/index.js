@@ -8872,9 +8872,10 @@ const github = __nccwpck_require__(4637);
         var artifactsInput = core.getInput('artifacts'); 
   
         var artifactsObj = JSON.parse(artifactsInput.replace(/\n/g, ' '));
-        var seperator = ';';
-        var seperator_kv = ':';
-        var artifacts = ';'
+
+        var artifacts = '';
+        var kv_seperator = ":";
+        var seperator = ";";
 
         // configure cloud ----------------------
         if ( cloud == "azure") {             
@@ -8885,11 +8886,14 @@ const github = __nccwpck_require__(4637);
         console.log(`environment: ${environment}`);
         console.log(`artifacts: ${artifacts}`);
 
+        // build a list of artifacts. --------------------
         for (var item in artifactsObj ) {
- //           console.log(`hello value is ${item} equals ${artifactsObj[ item ]}`);
-            var artifact = `${item}.txt${seperator_kv}${artifactsObj[ item ]}${seperator}`;
+            var artifact = `${item}.txt${kv_seperator}${artifactsObj[ item ]}${seperator}`;
             artifacts = artifacts.concat(artifact);        
         }
+
+        // trim the last seperator
+        artifacts = artifacts.replace(/\d$/, '');
         
         console.log(`artifacts: ${artifacts}`);
     }
