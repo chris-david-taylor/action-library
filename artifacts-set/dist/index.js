@@ -8882,20 +8882,27 @@ const github = __nccwpck_require__(4637);
             environment = environment.replace(/-/g, '');
         } 
 
-        console.log(`cloud: ${cloud}`);
-        console.log(`environment: ${environment}`);
-        console.log(`artifacts: ${artifacts}`);
-
         // build a list of artifacts. --------------------
         for (var item in artifactsObj ) {
             var artifact = `${item}.txt${kv_seperator}${artifactsObj[ item ]}${seperator}`;
             artifacts = artifacts.concat(artifact);        
         }
 
-        // trim the last seperator
+        // trim the last seperator -----------------------
         artifacts = artifacts.replace(/\d$/, '');
-        
+    
+        // export variables --------------------
+        core.exportVariable("CLOUD", `${cloud}`);
+        core.exportVariable("ENVIRONMENT", `${environment}`);
+        core.exportVariable("ARTIFACTS", `${artifacts}`);
+        core.exportVariable("ARTIFACT_SEPARATOR", `${seperator}`);
+        core.exportVariable("ARTIFACT_KV_SEPARATOR", `${kv_seperator}`);
+
+        console.log(`cloud: ${cloud}`);
+        console.log(`environment: ${environment}`);
         console.log(`artifacts: ${artifacts}`);
+        console.log(`artifact_seperator: ${seperator}`);
+        console.log(`artifact_kv_seperator: ${kv_seperator}`)
     }
     catch{
         console.log("exception!");
