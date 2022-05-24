@@ -8990,18 +8990,19 @@ const github = __nccwpck_require__(4637);
         console.log(`eventBefore: ${eventBefore}`);
         console.log(`eventAfter: ${eventAfter}`);
 
-        const client = new Octokit({
+        const octokit = new Octokit({
             auth: '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'
-          })
+          });
 
     //    var commits = List;
 
-        var response = await client.Repository.Commit.Compare(
-            "chris-david-taylor", 
-            "hello-action", 
-            eventAfter,
-            eventBefore );
-        confirm.log(`response is : ${response}`); 
+        var response = await octokit.rest.repos.compareCommits({
+            owner: "chris-david-taylor", 
+            repo: "hello-action", 
+            base: eventAfter,
+            head: eventBefore });
+
+        console.log(`response is : ${response}`); 
 
         //Console.WriteLine($"There are {response.TotalCommits} between these two refs\n");
         
