@@ -3,10 +3,18 @@
 name: 'Detect Environment'
 description: 'Install and configure aspects of helm. This action can be called with multiple steps'
 inputs:
-  plugin:
+  cloud:
     description: 'Cloud (aws, azure)'
     required: false
     default: ''
+  event_before:
+    description: 'Event before'
+    required: false
+    default: '' 
+  event_after:
+    description: 'Event after'
+    required: false
+    default: '' 
 
 runs:
   using: 'node16' 
