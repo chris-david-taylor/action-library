@@ -1,6 +1,6 @@
 const core = require('@actions/core');
-const github = require('@actions/github');
 require('dotenv').config();
+import { Octokit } from '@octokit/rest';
 
 (async () => {
 
@@ -17,12 +17,14 @@ require('dotenv').config();
           });
 
     //    var commits = List;
+    console.log(`eventAfter: ${eventAfter}`);
 
         var response = await octokit.rest.repos.compareCommits({
             owner: "chris-david-taylor", 
             repo: "hello-action", 
             base: eventAfter,
-            head: eventBefore });
+            head: eventBefore 
+          });
 
         console.log(`response is : ${response}`); 
 
