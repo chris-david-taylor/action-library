@@ -17,16 +17,15 @@ import { Octokit } from '@octokit/rest';
           });
 
     //    var commits = List;
-    console.log(`eventAfter: ${eventAfter}`);
 
         var response = await octokit.rest.repos.compareCommits({
             owner: "chris-david-taylor", 
             repo: "hello-action", 
-            base: eventAfter,
-            head: eventBefore 
+            base: eventBefore,
+            head: eventAfter 
           });
 
-        console.log(`response is : ${response}`); 
+        console.log(`response is : ${JSON.stringify(response)}`); 
 
         //Console.WriteLine($"There are {response.TotalCommits} between these two refs\n");
         
