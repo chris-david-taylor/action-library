@@ -23,14 +23,15 @@ require('dotenv').config();
             "hello-action", 
             eventAfter,
             eventBefore );
-        
+        confirm.log(`response is : ${response}`); 
+
         //Console.WriteLine($"There are {response.TotalCommits} between these two refs\n");
         
-        foreach ( c in response.Commits)
-        {
-            var detailedCommit = await client.Repository.Commit.Get("chris-david-taylor", "hello-action", c.Sha);
-            commits.Add(detailedCommit);
-        }
+      //  foreach ( c in response.Commits)
+ //       {
+//var detailedCommit = await client.Repository.Commit.Get("chris-david-taylor", "hello-action", c.Sha);
+ //           commits.Add(detailedCommit);
+ //       }
       /*  
         foreach (var c in commits)
         {
