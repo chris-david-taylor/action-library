@@ -8870,9 +8870,8 @@ const github = __nccwpck_require__(4637);
         var eventBefore = core.getInput('event_before');
         var eventAfter = core.getInput('event_after');
 
-        var before = await github.e
-
-        console.log(`event: `);
+        console.log(`eventBefore: ${eventBefore}`);
+        console.log(`eventAfter: ${eventAfter}`);
 
     } catch {
         console.log("exception!");
