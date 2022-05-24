@@ -20,7 +20,7 @@ import { Octokit } from '@octokit/rest';
 
         var response = await octokit.rest.repos.compareCommits({
             owner: "chris-david-taylor", 
-            repo: "hello-action", 
+            repo: "action-demo", 
             base: eventBefore,
             head: eventAfter 
           });

@@ -8861,7 +8861,7 @@ const core = __nccwpck_require__(2619);
 
         var response = await octokit.rest.repos.compareCommits({
             owner: "chris-david-taylor", 
-            repo: "hello-action", 
+            repo: "action-demo", 
             base: eventBefore,
             head: eventAfter 
           });
