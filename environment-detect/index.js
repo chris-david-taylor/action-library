@@ -25,6 +25,7 @@ import { Octokit } from '@octokit/rest';
             head: eventAfter 
           });
 
+        console.log ("got thus far");  
         console.log(`response is : ${JSON.stringify(response)}`); 
 
         //Console.WriteLine($"There are {response.TotalCommits} between these two refs\n");
