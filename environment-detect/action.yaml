@@ -1,0 +1,13 @@
+---
+
+name: 'Detect Environment'
+description: 'Install and configure aspects of helm. This action can be called with multiple steps'
+inputs:
+  plugin:
+    description: 'Cloud (aws, azure)'
+    required: false
+    default: ''
+
+runs:
+  using: 'node16' 
+  main: 'dist/index.js'
