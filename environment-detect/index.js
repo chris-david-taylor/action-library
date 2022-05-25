@@ -7,6 +7,7 @@ import Rest from './Rest.js';
     try {
         var eventBefore = core.getInput('event_before');
         var eventAfter = core.getInput('event_after');
+        var token = core.getInput('token');
 
         console.log(`eventBefore: ${eventBefore}`);
         console.log(`eventAfter: ${eventAfter}`);
@@ -18,7 +19,7 @@ import Rest from './Rest.js';
 
         var url = `${site}/${org}/${repo}/compare/${eventBefore}...${eventAfter}`;
 
-        var rest = new Rest("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");
+        var rest = new Rest(token);
 
         var response = await rest._get( url );
         console.log(`[index] response is ${JSON.stringify(response)}`);

@@ -15,7 +15,10 @@ inputs:
     description: 'Event after'
     required: false
     default: '' 
-
+  token:
+    description: ''
+    required: false
+    default: ''
 runs:
   using: 'node16' 
   main: 'dist/index.js'

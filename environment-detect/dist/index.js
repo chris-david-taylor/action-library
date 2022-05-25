@@ -3543,6 +3543,7 @@ const core = __nccwpck_require__(619);
     try {
         var eventBefore = core.getInput('event_before');
         var eventAfter = core.getInput('event_after');
+        var token = core.getInput('token');
 
         console.log(`eventBefore: ${eventBefore}`);
         console.log(`eventAfter: ${eventAfter}`);
@@ -3554,7 +3555,7 @@ const core = __nccwpck_require__(619);
 
         var url = `${site}/${org}/${repo}/compare/${eventBefore}...${eventAfter}`;
 
-        var rest = new Rest_0("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");
+        var rest = new Rest_0(token);
 
         var response = await rest._get( url );
         console.log(`[index] response is ${JSON.stringify(response)}`);
