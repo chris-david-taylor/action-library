@@ -3595,7 +3595,7 @@ const core = __nccwpck_require__(619);
             var environment = await text.field(versionFiles[i], '/', 2);
             environments.push(environment);
         }
-
+        
         // if all environments are the same ------
         if (text.all_unique(environments)) {
             deploy_env = environments[0];

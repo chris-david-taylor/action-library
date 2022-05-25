@@ -15,11 +15,17 @@ inputs:
     description: 'Event after'
     required: false
     default: '' 
-    
   token:
     description: ''
     required: false
     default: ''
+
+outputs:
+  continue_deployment:
+    description:  'Continue ceployment (yes/no)'
+  deploy_env:
+    description: 'Environment to deploy'
+  
 
 runs:
   using: 'node16' 

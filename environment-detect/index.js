@@ -38,7 +38,7 @@ import Text from './Text.js';
             var environment = await text.field(versionFiles[i], '/', 2);
             environments.push(environment);
         }
-
+        
         // if all environments are the same ------
         if (text.all_unique(environments)) {
             deploy_env = environments[0];
