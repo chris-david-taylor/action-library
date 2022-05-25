@@ -3538,16 +3538,8 @@ class Text {
 
     async field( str, seperator, field) 
     {
-        var ret = []
         var splits = str.split(seperator)
-        var index = 0
-        
-        for(var i = 0; i < splits.length; i++ ) {
-          ret.push([index, splits[i] ]);
-          index += splits[i].length+seperator.length;
-        }
-
-        return ret[ field ];
+        return splits[ field ];
     }
 
     async filter( items, filterTxt) {
@@ -3577,15 +3569,13 @@ const core = __nccwpck_require__(619);
         var repo = "action-demo";
         var url = `${site}/${org}/${repo}/compare/${eventBefore}...${eventAfter}`;
         var files = [];
- 
+        var environments = []; 
+
         var rest = new Rest_0(token);
         var text = new Text_0();
 
         var response = await rest._get( url );
-
-        // catch all possible values of environment - should strictly only be one 
-        var environments = [];        
-
+              
         for( var i = 0, l = response.files.length; i < l; i++ ) {
             var filename = response.files[i].filename;            
             files.push(filename);

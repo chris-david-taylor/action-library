@@ -16,15 +16,13 @@ import Text from './Text.js';
         var repo = "action-demo";
         var url = `${site}/${org}/${repo}/compare/${eventBefore}...${eventAfter}`;
         var files = [];
- 
+        var environments = []; 
+
         var rest = new Rest(token);
         var text = new Text();
 
         var response = await rest._get( url );
-
-        // catch all possible values of environment - should strictly only be one 
-        var environments = [];        
-
+              
         for( var i = 0, l = response.files.length; i < l; i++ ) {
             var filename = response.files[i].filename;            
             files.push(filename);
