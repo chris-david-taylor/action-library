@@ -26,7 +26,7 @@ import Rest from './Rest.js';
         console.log(`response ${JSON.stringify(response)}`);
 
         for( var file in response['files']){
-            console.log(`Obj: ${file}`);
+            console.log(`Obj: ${JSON.parse(file)}`);
             console.log(`Str: ${JSON.stringify(file)}`);            
          //   files.push(`${file['filename']}`);
 
