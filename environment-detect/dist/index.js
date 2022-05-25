@@ -3539,15 +3539,20 @@ class Text {
     async field( string, seperator, index) 
     {
         var ret = []
-        var splits = str.split(delim)
+        var splits = string.split(seperator)
         var index = 0
         
         for(var i = 0; i < splits.length; i++ ) {
           ret.push([index, splits[i] ]);
-          index += splits[i].length+delim.length;
+          index += splits[i].length+seperator.length;
         }
 
-        return ret['index'];
+        return ret[ index ];
+    }
+
+    async filter( items, filterTxt) {
+
+        return items.filter(function(str) { return str.includes(filterTxt) });
     }
 
 }
@@ -3578,7 +3583,7 @@ const core = __nccwpck_require__(619);
 
         var response = await rest._get( url );
 
-        // catch all possible values of environment - this should strictly only be one 
+        // catch all possible values of environment - should strictly only be one 
         var environments = [];        
 
         for( var i = 0, l = response.files.length; i < l; i++ ) {
@@ -3587,7 +3592,7 @@ const core = __nccwpck_require__(619);
         }  
 
         // filter by cloud ---------------------
-        files = files.filter(function (str) { return str.includes(cloud); });
+        var versionFiles = await text.filter(files, cloud )
 
         // get environment ---------------------
         for (var file in files ) {

@@ -22,7 +22,7 @@ import Text from './Text.js';
 
         var response = await rest._get( url );
 
-        // catch all possible values of environment - this should strictly only be one 
+        // catch all possible values of environment - should strictly only be one 
         var environments = [];        
 
         for( var i = 0, l = response.files.length; i < l; i++ ) {
@@ -31,7 +31,7 @@ import Text from './Text.js';
         }  
 
         // filter by cloud ---------------------
-        files = files.filter(function (str) { return str.includes(cloud); });
+        var versionFiles = await text.filter(files, cloud )
 
         // get environment ---------------------
         for (var file in files ) {
