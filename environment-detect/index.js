@@ -43,7 +43,7 @@ import Text from './Text.js';
             }
 
             // if all environments are the same ------
-            if (text.all_unique(environments) === true) {
+            if (text.all_unique(environments)) {
                 deploy_env = environments[0];
             }
         } 

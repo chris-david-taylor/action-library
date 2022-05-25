@@ -3601,7 +3601,7 @@ const core = __nccwpck_require__(619);
             }
 
             // if all environments are the same ------
-            if (text.all_unique(environments) === true) {
+            if (text.all_unique(environments)) {
                 deploy_env = environments[0];
             }
         } 
