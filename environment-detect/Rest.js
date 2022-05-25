@@ -12,12 +12,13 @@ class Rest {
     async _get( url = "" ) 
     {       
         var response = await this.get( url, 
-            this.xhr);
+            this.xhr,
+            this.token);
 
         return JSON.parse(response);
     }
     
-    get(url = "" , xhr ) 
+    get(url = "" , xhr, token ) 
     {                
         return new Promise(function (resolve, reject) 
         {   
@@ -25,7 +26,7 @@ class Rest {
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.setRequestHeader('Accept','application/json');
             xhr.setRequestHeader('Authorization', 
-                'token ' + Buffer.from(this.token).toString('base64'));
+                'token ' + Buffer.from(token).toString('base64'));
             xhr.onreadystatechange = function () 
             {
                 if ( this.readyState == this.DONE )                 
