@@ -3524,7 +3524,6 @@ class Rest {
                 if ( this.readyState == this.DONE )                 
                 { 
                    resolve(xhr.response);  
-                   console.log(`response: ${xhr.response}`);         
                 };
             };
             xhr.send();
@@ -3558,14 +3557,14 @@ const core = __nccwpck_require__(619);
         var rest = new Rest_0(token);
 
         var response = await rest._get( url );
-        console.log(`[index] response is ${JSON.stringify(response)}`);
-       /* 
+ 
         var files = [];    
 
         for( file in response['files']){
-
+            files.push(`${file['filename']}`);
+            console.log(`FILENAME: ${file['filename']}`);
         }  
-*/
+
     } catch(e) {
         console.log(`exception! ${e}`);
     }

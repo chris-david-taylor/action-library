@@ -22,14 +22,14 @@ import Rest from './Rest.js';
         var rest = new Rest(token);
 
         var response = await rest._get( url );
-        console.log(`[index] response is ${JSON.stringify(response)}`);
-       /* 
+ 
         var files = [];    
 
         for( file in response['files']){
-
+            files.push(`${file['filename']}`);
+            console.log(`FILENAME: ${file['filename']}`);
         }  
-*/
+
     } catch(e) {
         console.log(`exception! ${e}`);
     }

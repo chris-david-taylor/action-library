@@ -31,7 +31,6 @@ class Rest {
                 if ( this.readyState == this.DONE )                 
                 { 
                    resolve(xhr.response);  
-                   console.log(`response: ${xhr.response}`);         
                 };
             };
             xhr.send();
