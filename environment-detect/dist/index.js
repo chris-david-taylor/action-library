@@ -3550,7 +3550,6 @@ class Text {
     async all_unique ( items) {
         const allEqual = arr => arr.every( v => v === arr[0] );
         var result = allEqual(items);
-        console.log(`result: ${result},  ${items}`);
         return result;
     }
 
@@ -3602,8 +3601,10 @@ const core = __nccwpck_require__(619);
                environments.push(environment);
             }
 
+            var unique_envs = text.all_unique(environments);
+
             // if all environments are the same ------
-            if (text.all_unique(environments)) {
+            if (unique_envs === true) {
                 deploy_env = environments[0];
             }
         } 

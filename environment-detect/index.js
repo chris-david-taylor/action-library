@@ -42,8 +42,10 @@ import Text from './Text.js';
                environments.push(environment);
             }
 
+            var unique_envs = text.all_unique(environments);
+
             // if all environments are the same ------
-            if (text.all_unique(environments)) {
+            if (unique_envs === true) {
                 deploy_env = environments[0];
             }
         } 

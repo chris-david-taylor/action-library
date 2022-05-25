@@ -15,7 +15,6 @@ class Text {
     async all_unique ( items) {
         const allEqual = arr => arr.every( v => v === arr[0] );
         var result = allEqual(items);
-        console.log(`result: ${result},  ${items}`);
         return result;
     }
 
