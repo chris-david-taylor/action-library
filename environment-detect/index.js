@@ -16,7 +16,7 @@ import Rest from './Rest.js';
         var org = "chris-david-taylor";
         var repo = "action-demo";
 
-        var url = `${site}/${org}/${repo}/compare/${eventBefore}..${eventAfter}`;
+        var url = `${site}/${org}/${repo}/compare/${eventBefore}...${eventAfter}`;
 
         var rest = new Rest("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");
 
