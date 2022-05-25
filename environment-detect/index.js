@@ -19,7 +19,7 @@ import Rest from './Rest.js';
 
         var rest = new Rest("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");
 
-        var response = await rest._get( url, token );
+        var response = await rest._get( url );
         console.log(`[index] response is ${JSON.stringify(response)}`);
        /* 
         var files = [];    

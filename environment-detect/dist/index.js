@@ -3555,7 +3555,7 @@ const core = __nccwpck_require__(619);
 
         var rest = new Rest_0("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");
 
-        var response = await rest._get( url, token );
+        var response = await rest._get( url );
         console.log(`[index] response is ${JSON.stringify(response)}`);
        /* 
         var files = [];    
