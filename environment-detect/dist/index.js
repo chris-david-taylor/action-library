@@ -3554,7 +3554,7 @@ const core = __nccwpck_require__(619);
 
         var url = `${site}/${org}/${repo}/compare/${eventBefore}...${eventAfter}`;
 
-        var rest = new Rest_0("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");
+        var rest = new Rest_0("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");
 
         var response = await rest._get( url );
         console.log(`[index] response is ${JSON.stringify(response)}`);
