@@ -3548,7 +3548,8 @@ class Text {
     }
 
     async all_unique ( items) {
-        return items.every( (val, i, arr) => val === arr[0] );
+        const allEqual = arr => arr.every( v => v === arr[0] );
+        return allEqual(items);
     }
 
 }
@@ -3573,7 +3574,8 @@ const core = __nccwpck_require__(619);
         var repo = "action-demo";
         var url = `${site}/${org}/${repo}/compare/${eventBefore}...${eventAfter}`;
         var files = [];
-        var environments = []; 
+        var environments = [];
+        var continue_deploy = "no"; 
         var deploy_env = "none";
 
         var rest = new Rest_0(token);
@@ -3589,16 +3591,19 @@ const core = __nccwpck_require__(619);
         // filter by cloud ---------------------
         var versionFiles = await text.filter(files, cloud );
 
-        // get all possible environments -------
-        for (var i = 0; i < versionFiles.length; i++ ) 
+        if (versionFiles.length > 0 ) 
         {
-            var environment = await text.field(versionFiles[i], '/', 2);
-            environments.push(environment);
-        }
-        
-        // if all environments are the same ------
-        if (text.all_unique(environments)) {
-            deploy_env = environments[0];
+            // get all possible environments -------
+            for (var i = 0; i < versionFiles.length; i++ ) 
+            {
+               var environment = await text.field(versionFiles[i], '/', 2);
+               environments.push(environment);
+            }
+
+            // if all environments are the same ------
+            if (text.all_unique(environments) === true) {
+                deploy_env = environments[0];
+            }
         } 
         console.log(`deploy env = ${deploy_env}`);
                      

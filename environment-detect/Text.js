@@ -13,7 +13,8 @@ class Text {
     }
 
     async all_unique ( items) {
-        return items.every( (val, i, arr) => val === arr[0] );
+        const allEqual = arr => arr.every( v => v === arr[0] );
+        return allEqual(items);
     }
 
 }

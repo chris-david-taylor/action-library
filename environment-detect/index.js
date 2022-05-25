@@ -16,7 +16,8 @@ import Text from './Text.js';
         var repo = "action-demo";
         var url = `${site}/${org}/${repo}/compare/${eventBefore}...${eventAfter}`;
         var files = [];
-        var environments = []; 
+        var environments = [];
+        var continue_deploy = "no"; 
         var deploy_env = "none";
 
         var rest = new Rest(token);
@@ -32,16 +33,19 @@ import Text from './Text.js';
         // filter by cloud ---------------------
         var versionFiles = await text.filter(files, cloud );
 
-        // get all possible environments -------
-        for (var i = 0; i < versionFiles.length; i++ ) 
+        if (versionFiles.length > 0 ) 
         {
-            var environment = await text.field(versionFiles[i], '/', 2);
-            environments.push(environment);
-        }
-        
-        // if all environments are the same ------
-        if (text.all_unique(environments)) {
-            deploy_env = environments[0];
+            // get all possible environments -------
+            for (var i = 0; i < versionFiles.length; i++ ) 
+            {
+               var environment = await text.field(versionFiles[i], '/', 2);
+               environments.push(environment);
+            }
+
+            // if all environments are the same ------
+            if (text.all_unique(environments) === true) {
+                deploy_env = environments[0];
+            }
         } 
         console.log(`deploy env = ${deploy_env}`);
                      
