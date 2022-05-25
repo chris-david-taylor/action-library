@@ -3532,9 +3532,31 @@ class Rest {
 }
 
 /* harmony default export */ const Rest_0 = (Rest);
+;// CONCATENATED MODULE: ./Text.js
+
+class Text {  
+
+    async field( string, seperator, index) 
+    {
+        var ret = []
+        var splits = str.split(delim)
+        var index = 0
+        
+        for(var i = 0; i < splits.length; i++ ) {
+          ret.push([index, splits[i] ]);
+          index += splits[i].length+delim.length;
+        }
+
+        return ret['index'];
+    }
+
+}
+
+/* harmony default export */ const Text_0 = (Text);
 ;// CONCATENATED MODULE: ./index.js
 const core = __nccwpck_require__(619);
 (__nccwpck_require__(900).config)();
+
 
 
 (async () => {
@@ -3544,31 +3566,36 @@ const core = __nccwpck_require__(619);
         var eventAfter = core.getInput('event_after');
         var token = core.getInput('token');
 
-        console.log(`eventBefore: ${eventBefore}`);
-        console.log(`eventAfter: ${eventAfter}`);
-
         var cloud = "aws";
         var site = "https://api.github.com/repos";
         var org = "chris-david-taylor";
         var repo = "action-demo";
-
         var url = `${site}/${org}/${repo}/compare/${eventBefore}...${eventAfter}`;
+        var files = [];
+ 
         var rest = new Rest_0(token);
+        var text = new Text_0();
 
         var response = await rest._get( url );
- 
-        var files = [];    
-        console.log(`response ${JSON.stringify(response)}`);
+
+        // catch all possible values of environment - this should strictly only be one 
+        var environments = [];        
 
         for( var i = 0, l = response.files.length; i < l; i++ ) {
-            console.log(`Str: ${JSON.stringify(response.files[i])}`);
-            var filename = response.files[i].filename; 
-            console.log(`filename: ${filename}`);            
-         //   files.push(`${file['filename']}`);
+            var filename = response.files[i].filename;            
+            files.push(filename);
         }  
 
+        // filter by cloud ---------------------
+        files = files.filter(function (str) { return str.includes(cloud); });
 
-
+        // get environment ---------------------
+        for (var file in files ) {
+            var environment = await text.field(file, '/', '2');
+            console.log(`environment ${environment}`);
+            environments.push(file)
+        }
+                     
     } catch(e) {
         console.log(`exception! ${e}`);
     }
