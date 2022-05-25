@@ -3592,10 +3592,13 @@ const core = __nccwpck_require__(619);
         }  
 
         // filter by cloud ---------------------
-        var versionFiles = await text.filter(files, cloud )
+        console.log(`files ${files}`);
+        var versionFiles = await text.filter(files, cloud );
+        console.log(`vfiles ${versionFiles}`);
+
 
         // get environment ---------------------
-        for (var file in files ) {
+        for (var file in versionFiles ) {
             var environment = await text.field(file, '/', '2');
             console.log(`environment ${environment}`);
             environments.push(file)
