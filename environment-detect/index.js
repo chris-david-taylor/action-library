@@ -1,53 +1,34 @@
 const core = require('@actions/core');
 require('dotenv').config();
-import { Octokit } from '@octokit/rest';
+import Rest from './Rest.js';
 
 (async () => {
 
     try {
-        var cloudInput = core.getInput('cloud');
         var eventBefore = core.getInput('event_before');
         var eventAfter = core.getInput('event_after');
 
         console.log(`eventBefore: ${eventBefore}`);
         console.log(`eventAfter: ${eventAfter}`);
 
-        const octokit = new Octokit({
-            auth: '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'
-          });
+        var site = "https://api.github.com/repos";
+        var org = "chris-david-taylor";
+        var repo = "action demo";
 
-    //    var commits = List;
+        var url = `${site}/${org}/${repo}/compare/${eventBefore}..${eventAfter}`;
 
-        var response = await octokit.rest.repos.compareCommits({
-            owner: "chris-david-taylor", 
-            repo: "action-demo", 
-            base: eventBefore,
-            head: eventAfter 
-          });
+        var rest = new Rest("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");
 
-        console.log ("got thus far");  
-        console.log(`response is : ${JSON.stringify(response)}`); 
+        var response = await rest._get( url, token );
+        console.log(`[index] response is ${JSON.stringify(response)}`);
+       /* 
+        var files = [];    
 
-        //Console.WriteLine($"There are {response.TotalCommits} between these two refs\n");
-        
-      //  foreach ( c in response.Commits)
- //       {
-//var detailedCommit = await client.Repository.Commit.Get("chris-david-taylor", "hello-action", c.Sha);
- //           commits.Add(detailedCommit);
- //       }
-      /*  
-        foreach (var c in commits)
-        {
-            Console.WriteLine($"Found commit {c.Sha} - {c.Commit.Message}");
-            foreach (var f in c.Files)
-            {
-                Console.WriteLine($" - {f.Filename}");
-            }
-            Console.WriteLine();
-        }
+        for( file in response['files']){
+
+        }  
 */
-
-    } catch {
-        console.log("exception!");
+    } catch(e) {
+        console.log(`exception! ${e}`);
     }
 })();
