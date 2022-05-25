@@ -23,10 +23,13 @@ import Rest from './Rest.js';
         var response = await rest._get( url );
  
         var files = [];    
-        console.log(`response ${JSON.stringify(response)}`);
+    //    console.log(`response ${JSON.stringify(response)}`);
         for( var file in response['files']){
-            files.push(`${file['filename']}`);
-            console.log(`FILENAME: ${file['filename']}`);
+
+            
+
+         //   files.push(`${file['filename']}`);
+            console.log(`FILENAME: ${JSON.stringify(file)}`);
         }  
 
 
