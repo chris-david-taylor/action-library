@@ -3553,17 +3553,18 @@ const core = __nccwpck_require__(619);
         var repo = "action-demo";
 
         var url = `${site}/${org}/${repo}/compare/${eventBefore}...${eventAfter}`;
-
         var rest = new Rest_0(token);
 
         var response = await rest._get( url );
  
         var files = [];    
 
-        for( file in response['files']){
+        for( var file in response['files']){
             files.push(`${file['filename']}`);
             console.log(`FILENAME: ${file['filename']}`);
         }  
+
+
 
     } catch(e) {
         console.log(`exception! ${e}`);

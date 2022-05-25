@@ -18,17 +18,18 @@ import Rest from './Rest.js';
         var repo = "action-demo";
 
         var url = `${site}/${org}/${repo}/compare/${eventBefore}...${eventAfter}`;
-
         var rest = new Rest(token);
 
         var response = await rest._get( url );
  
         var files = [];    
 
-        for( file in response['files']){
+        for( var file in response['files']){
             files.push(`${file['filename']}`);
             console.log(`FILENAME: ${file['filename']}`);
         }  
+
+
 
     } catch(e) {
         console.log(`exception! ${e}`);
