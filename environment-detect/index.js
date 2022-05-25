@@ -38,8 +38,9 @@ import Text from './Text.js';
 
         // get environment ---------------------
         for (var file in versionFiles ) {
-            var environment = await text.field(file, '/', '2');
+            var environment = await text.field(file, '/', 2);
             console.log(`environment ${environment}`);
+            console.log(`file: ${file}`);
             environments.push(file)
         }
                      
