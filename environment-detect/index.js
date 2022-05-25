@@ -42,7 +42,7 @@ import Text from './Text.js';
                environments.push(environment);
             }
 
-            var unique_envs = text.all_unique(environments);
+            var unique_envs = await text.all_unique(environments);
 
             // if all environments are the same ------
             if (unique_envs === true) {
