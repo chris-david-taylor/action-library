@@ -3550,7 +3550,7 @@ const core = __nccwpck_require__(619);
         var cloud = "aws";
         var site = "https://api.github.com/repos";
         var org = "chris-david-taylor";
-        var repo = "action demo";
+        var repo = "action-demo";
 
         var url = `${site}/${org}/${repo}/compare/${eventBefore}..${eventAfter}`;
 
