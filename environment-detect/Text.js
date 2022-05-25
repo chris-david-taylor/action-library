@@ -3,7 +3,8 @@ class Text {
 
     async field( str, seperator, field) 
     {
-        var splits = str.split(seperator)
+        var splits = str.split(seperator);
+        console.log(`splits ${splits}`);
         return splits[ field ];
     }
 
