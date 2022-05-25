@@ -1,10 +1,10 @@
 
 class Text {  
 
-    async field( string, seperator, index) 
+    async field( str, seperator, field) 
     {
         var ret = []
-        var splits = string.split(seperator)
+        var splits = str.split(seperator)
         var index = 0
         
         for(var i = 0; i < splits.length; i++ ) {
@@ -12,7 +12,7 @@ class Text {
           index += splits[i].length+seperator.length;
         }
 
-        return ret[ index ];
+        return ret[ field ];
     }
 
     async filter( items, filterTxt) {
