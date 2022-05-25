@@ -17,6 +17,7 @@ import Text from './Text.js';
         var url = `${site}/${org}/${repo}/compare/${eventBefore}...${eventAfter}`;
         var files = [];
         var environments = []; 
+        var deploy_env = "none";
 
         var rest = new Rest(token);
         var text = new Text();
@@ -29,19 +30,20 @@ import Text from './Text.js';
         }  
 
         // filter by cloud ---------------------
-        console.log(`files ${files}`);
         var versionFiles = await text.filter(files, cloud );
-        console.log(`vfiles ${versionFiles}`);
 
-
-        // get environment ---------------------
+        // get all possible environments -------
         for (var i = 0; i < versionFiles.length; i++ ) 
         {
             var environment = await text.field(versionFiles[i], '/', 2);
-            console.log(`environment ${environment}`);
-            console.log(`file: ${versionFiles[i]}`);
             environments.push(environment);
         }
+
+        // if all environments are the same ------
+        if (text.all_unique(environments)) {
+            deploy_env = environments[0];
+        } 
+        console.log(`deploy env = ${deploy_env}`);
                      
     } catch(e) {
         console.log(`exception! ${e}`);
