@@ -25,7 +25,7 @@ class Rest {
             xhr.setRequestHeader("Content-Type", "application/json");
             xhr.setRequestHeader('Accept','application/json');
             xhr.setRequestHeader('Authorization', 
-                'token ' + Buffer.from(self.token).toString('base64'));
+                'token ' + Buffer.from(this.token).toString('base64'));
             xhr.onreadystatechange = function () 
             {
                 if ( this.readyState == this.DONE )                 
