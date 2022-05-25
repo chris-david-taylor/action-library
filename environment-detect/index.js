@@ -11,6 +11,7 @@ import Rest from './Rest.js';
         console.log(`eventBefore: ${eventBefore}`);
         console.log(`eventAfter: ${eventAfter}`);
 
+        var cloud = "aws";
         var site = "https://api.github.com/repos";
         var org = "chris-david-taylor";
         var repo = "action demo";
