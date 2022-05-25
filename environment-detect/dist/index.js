@@ -3516,8 +3516,8 @@ class Rest {
         return new Promise(function (resolve, reject) 
         {   
             xhr.open("GET", url, true);        
-            xhr.setRequestHeader("Content-Type", "application/json");
-            xhr.setRequestHeader('Accept','application/json');
+ //           xhr.setRequestHeader("Content-Type", "application/json");
+ //           xhr.setRequestHeader('Accept','application/json');
             xhr.setRequestHeader('Authorization', `token ${token}`);
             xhr.onreadystatechange = function () 
             {
