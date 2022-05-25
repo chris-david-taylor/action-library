@@ -3560,13 +3560,11 @@ const core = __nccwpck_require__(619);
         var files = [];    
         console.log(`response ${JSON.stringify(response)}`);
 
-        
-
-        for( var file in response['files']){
-            console.log(`Str: ${JSON.stringify(file)}`);
-            console.log(`obj: ${file}`);            
+        for( var i = 0, l = response.files.length; i < l; i++ ) {
+            console.log(`Str: ${JSON.stringify(response.files[i])}`);
+            var filename = response.files[i].filename; 
+            console.log(`filename: ${filename}`);            
          //   files.push(`${file['filename']}`);
-
         }  
 
 
