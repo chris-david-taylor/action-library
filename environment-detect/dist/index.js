@@ -3558,7 +3558,7 @@ const core = __nccwpck_require__(619);
         var response = await rest._get( url );
  
         var files = [];    
-    //    console.log(`response ${JSON.stringify(response)}`);
+        console.log(`response ${JSON.stringify(files)}`);
         for( var file in response['files']){
 
             
